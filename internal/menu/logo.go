@@ -8,5 +8,4 @@ func ShowLogo() {
 	fmt.Println(" / // /_/ //_/ / ")
 	fmt.Println("/__  __/ ,< / /  ")
 	fmt.Println("  /_/ /_/|_/_/   ")
-	fmt.Println("")
 }
