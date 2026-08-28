@@ -7,9 +7,15 @@ import (
 
 func main() {
 
+	MainMenuOptions := []string{
+		"Instalación completa",
+		"Instalación por módulos",
+	}
+
 	MainMenu := models.MenuModel{
 		ShowLogo: true,
 		Title:    "Menu Principal",
+		Options:  MainMenuOptions,
 	}
 
 	menu.ShowMenu(MainMenu)
