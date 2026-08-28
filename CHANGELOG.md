@@ -16,3 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Agregar `divider.go` para las separaciones de el menu
 - Agregar `menu.go` como punto de partida para mostrar de manera dinámica diferentes menus
 - Agregar `models/menu.go` para estructurar los datos para crear menus
+- Agregar parámetro para opciones en el modelo `models/menu.go`
+- Imprimir las opciones en `menu.go`
+- Eliminar espacio innecesario en `logo.go`
+- Definir opciones del menu principal en `main.go`
