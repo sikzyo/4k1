@@ -16,6 +16,7 @@ func main() {
 		ShowLogo: true,
 		Title:    "Menu Principal",
 		Options:  MainMenuOptions,
+		Exit:     "Salir de 4k1",
 	}
 
 	menu.ShowMenu(MainMenu)

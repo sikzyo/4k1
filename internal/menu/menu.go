@@ -17,4 +17,6 @@ func ShowMenu(Menu models.MenuModel) {
 		fmt.Print(indice, ") ", option, "\n")
 	}
 	ShowDivider()
+	fmt.Println("0)", Menu.Exit)
+	ShowDivider()
 }
