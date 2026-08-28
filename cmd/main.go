@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"github.com/sikzyo/4k1/internal/menu"
+	"github.com/sikzyo/4k1/internal/models"
+)
 
 func main() {
-	fmt.Println("¡Hola desde 4k1!")
+
+	MainMenu := models.MenuModel{
+		ShowLogo: true,
+		Title:    "Menu Principal",
+	}
+
+	menu.ShowMenu(MainMenu)
 }
