@@ -21,3 +21,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Eliminar espacio innecesario en `logo.go`
 - Definir opciones del menu principal en `main.go`
 - Agregar campo de salida en `models/menu.go` y su respectiva implementación en `menu.go`
+- Corregir error en los indices de las opciones
