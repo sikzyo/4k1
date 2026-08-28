@@ -13,4 +13,8 @@ func ShowMenu(Menu models.MenuModel) {
 	ShowDivider()
 	fmt.Println(Menu.Title)
 	ShowDivider()
+	for indice, option := range Menu.Options {
+		fmt.Print(indice, ") ", option, "\n")
+	}
+	ShowDivider()
 }
