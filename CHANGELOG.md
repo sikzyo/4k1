@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.4] - 2026-08-31
+
+### Added
+
+- Se agrega `command.go` para ejecutar comandos de sistema
+- Se utiliza `command.go` en `menu.go` para limpiar la pantalla al momento de iniciar el programa, ademas de manejar los errores en dado caso de que el script falle
+
+### Changed
+
+- Se mejoran los mensajes de entrada de texto para mayor claridad
+
 ## [0.0.3] - 2026-08-31
 
 ### Added
