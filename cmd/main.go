@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/sikzyo/4k1/internal/input"
 	"github.com/sikzyo/4k1/internal/menu"
 	"github.com/sikzyo/4k1/internal/models"
 )
@@ -20,4 +21,5 @@ func main() {
 	}
 
 	menu.ShowMenu(MainMenu)
+	input.GetInput()
 }
