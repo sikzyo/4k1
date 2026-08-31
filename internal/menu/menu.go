@@ -2,11 +2,18 @@ package menu
 
 import (
 	"fmt"
+	"os"
 
+	"github.com/sikzyo/4k1/internal/execute"
 	"github.com/sikzyo/4k1/internal/models"
 )
 
 func ShowMenu(Menu models.MenuModel) {
+	err := execute.Command("clear")
+	if err != nil {
+		fmt.Println("Un error ocurrió al iniciar el programa")
+		os.Exit(1)
+	}
 	if Menu.ShowLogo {
 		ShowLogo()
 	}
