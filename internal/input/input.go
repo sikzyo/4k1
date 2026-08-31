@@ -9,7 +9,7 @@ import (
 func GetInput() int {
 	var input string
 	fmt.Println("Ingresa una respuesta:")
-	fmt.Print("->")
+	fmt.Print("-> ")
 	fmt.Scan(&input)
 	number, err := strconv.Atoi(input)
 	if err != nil {
