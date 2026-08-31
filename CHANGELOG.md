@@ -7,10 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.3] - 2026-08-31
+
 ### Added
 
-- Agregar sistema de inputs `input.go`
-- Agregar llamado del sistema de inputs en el archivo `main.go`
+- Agregar sistema de inputs `input/input.go`
+- Usar el sistema de inputs como prueba en `main.go`
+
+## [0.0.2] - 2026-08-31
+
+### Changed
+
+- Agregar cambios al CHANGELOG
 
 ## [0.0.1] - 2026-08-29
 
