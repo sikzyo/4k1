@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Agregar sistema de inputs `input.go`
+- Agregar llamado del sistema de inputs en el archivo `main.go`
+
+## [0.0.1] - 2026-08-29
+
 - Actualizar el `CHANGELOG.md`
 - Generar archivo `CHANGELOG.md`
 - Agregar licencia MIT
