@@ -13,7 +13,7 @@ func main() {
 
 	MainMenuOptions := []string{
 		"Instalación completa",
-		"Instalación por módulos",
+		// "Instalación por módulos",
 	}
 
 	MainMenu := models.MenuModel{
@@ -36,7 +36,6 @@ func main() {
 		switch response {
 		case 1:
 			tasks.FullInstall()
-			close = true
 		case 0:
 			fmt.Println("Gracias por usar 4k1")
 			close = true
