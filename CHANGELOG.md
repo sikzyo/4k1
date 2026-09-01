@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.5] - 2026-09-01
+
+### Added
+
+- Se agrego la plantilla para el script de instalación completa `full_install.go`
+- Se agrego el sistema para poder navegar desde el menu principal
+- Se agrego una forma de manejar los errores del menu principal
+
+### Changed
+
+- Se modifico `input.go` para que mejorar el manejo de errores y los valores que retorna
+
 ## [0.0.4] - 2026-08-31
 
 ### Added
