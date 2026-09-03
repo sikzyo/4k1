@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-09-02
+
+### Added
+
+- Se agrega `data/steps.go` para gestionar los módulos o pasos de instalación
+- Agregar modelo para gestionar los pasos de instalación
+- Agregar primer paso de instalación `xcode.go`
+
+### Changed
+
+- Se hace el flujo de `full_install.go` para ejecutar los pasos de instalación.
+
+### Removed
+
+- Se deshabilita la opción de instalación por módulos de manera temporal
+- Se elimino el cierre automático al momento de completar la instalación completa
+
 ## [0.0.5] - 2026-09-01
 
 ### Added
