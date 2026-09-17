@@ -1,29 +1,55 @@
 package steps
 
 import (
+	"errors"
 	"fmt"
 	"time"
 
 	"github.com/sikzyo/4k1/internal/execute"
 )
 
-func InstallXcode() error {
+func Xcode() error {
 	fmt.Println("✦ Xcode ✦")
 
-	fmt.Println("-> Validando versión de xcode")
-	cmd := execute.Command("xcode-select", "-p")
+	err := validateXcode()
 
-	if cmd == nil {
-		fmt.Println("-> Xcode instalado correctamente")
+	if err == nil {
 		return nil
 	}
 
-	fmt.Println("-> Instalando xcode")
-	cmd = execute.Command("xcode-select", "--install")
+	err = installXcode()
 
-	if cmd != nil {
-		fmt.Println("-> Error al instalar Xcode")
-		return cmd
+	if err != nil {
+		return errors.New("No se puede iniciar la instalación de Xcode")
+	}
+
+	err = validateXcode()
+
+	if err != nil {
+		return errors.New("La instalación de Xcode presento un problema")
+	}
+
+	fmt.Println("✦ La instalación de Xcode se ejecuto de manera correcta")
+
+	return nil
+}
+
+func validateXcode() error {
+	fmt.Println("-> Validando instalación de xcode")
+	err := execute.Command("xcode-select", "-p")
+
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func installXcode() error {
+	fmt.Println("-> Instalando xcode")
+	err := execute.Command("xcode-select", "--install")
+
+	if err != nil {
+		return err
 	}
 
 	fmt.Println("✦ Se abrió una ventana para la instalación de Xcode")
@@ -32,22 +58,12 @@ func InstallXcode() error {
 
 	for true {
 		// Comando para validar si el proceso de instalación termino
-		cmd = execute.CommandNull("pgrep", "-f", "Install Command Line Developer Tools")
-		if cmd != nil {
+		err = execute.CommandNull("pgrep", "-f", "Install Command Line Developer Tools")
+		if err != nil {
 			break
 		}
 
 		time.Sleep(5 * time.Second)
 	}
-
-	cmd = execute.Command("xcode-select", "-p")
-
-	if cmd != nil {
-		fmt.Println("-> Ocurrió un error al momento de instalar xcode")
-		return cmd
-	}
-
-	fmt.Println("✦ La instalación de Xcode se ejecuto de manera correcta")
-
 	return nil
 }

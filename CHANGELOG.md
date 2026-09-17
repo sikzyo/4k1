@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Se mejora el proceso de instalación de Xcode y su manejo de errores
+- Se mejora el manejo de errores de la instalación y configuración de Git
+
 ## [0.3.1] - 2026-09-17
 
 ### Added
