@@ -1,14 +1,15 @@
 package steps
 
 import (
+	"errors"
 	"fmt"
 
 	"github.com/sikzyo/4k1/internal/execute"
 	"github.com/sikzyo/4k1/internal/input"
 )
 
-var User_git string
-var Email_git string
+var user_git string
+var email_git string
 
 func Git() error {
 	fmt.Println("✦ Git ✦")
@@ -44,8 +45,7 @@ func installGit() error {
 	err = execute.CommandNull("brew", "install", "git")
 
 	if err != nil {
-		fmt.Println("-> El comando de instalación de Git fallo")
-		return err
+		return errors.New("La instalación de Git fallo")
 	}
 
 	fmt.Println("-> Git instalado correctamente")
@@ -59,7 +59,6 @@ func gitMenu() (bool, error) {
 		response, err := input.GetInput()
 
 		if err != nil {
-			fmt.Println(err)
 			return false, err
 		}
 
@@ -78,33 +77,31 @@ func gitConfig() error {
 	fmt.Println("✦ Configuración de Git ✦")
 
 	fmt.Println("-> Ingresa tu nombre de usuario para Git")
-	User_git, err := input.GetInput()
+	user_git, err := input.GetInput()
 	if err != nil {
-		fmt.Println("-> Error al registrar el nombre")
-		return err
+		return errors.New("Error al registrar el nombre")
 	}
 
 	fmt.Println("-> Ingresa tu correo para Git")
-	Email_git, err := input.GetInput()
+	email_git, err := input.GetInput()
 	if err != nil {
-		fmt.Println("-> Error al registrar el correo")
-		return err
+		return errors.New("Error al registrar el correo")
 	}
 
 	fmt.Println("-> Aplicando configuraciones de Git")
-	err = execute.Command("git", "config", "--global", "user.name", User_git)
+	err = execute.Command("git", "config", "--global", "user.name", user_git)
 	if err != nil {
-		return err
+		return errors.New("Error al configurar el nombre")
 	}
 
-	err = execute.Command("git", "config", "--global", "user.email", Email_git)
+	err = execute.Command("git", "config", "--global", "user.email", email_git)
 	if err != nil {
-		return err
+		return errors.New("Error al configurar el correo")
 	}
 
 	err = execute.Command("git", "config", "--global", "init.defaultBranch", "main")
 	if err != nil {
-		return err
+		return errors.New("Error al configurar rama por defecto")
 	}
 
 	fmt.Println("✦ Git se configuro correctamente")
