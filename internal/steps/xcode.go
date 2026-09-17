@@ -8,22 +8,48 @@ import (
 	"github.com/sikzyo/4k1/internal/execute"
 )
 
-func InstallXcode() error {
+func Xcode() error {
 	fmt.Println("✦ Xcode ✦")
 
-	fmt.Println("-> Validando versión de xcode")
-	err := execute.Command("xcode-select", "-p")
+	err := validateXcode()
 
 	if err == nil {
-		fmt.Println("-> Xcode ya se encuentra instalado")
 		return nil
 	}
 
-	fmt.Println("-> Instalando xcode")
-	err = execute.Command("xcode-select", "--install")
+	err = installXcode()
 
 	if err != nil {
-		return errors.New("Error al instalar Xcode")
+		return errors.New("No se puede iniciar la instalación de Xcode")
+	}
+
+	err = validateXcode()
+
+	if err != nil {
+		return errors.New("La instalación de Xcode presento un problema")
+	}
+
+	fmt.Println("✦ La instalación de Xcode se ejecuto de manera correcta")
+
+	return nil
+}
+
+func validateXcode() error {
+	fmt.Println("-> Validando instalación de xcode")
+	err := execute.Command("xcode-select", "-p")
+
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func installXcode() error {
+	fmt.Println("-> Instalando xcode")
+	err := execute.Command("xcode-select", "--install")
+
+	if err != nil {
+		return err
 	}
 
 	fmt.Println("✦ Se abrió una ventana para la instalación de Xcode")
@@ -39,14 +65,5 @@ func InstallXcode() error {
 
 		time.Sleep(5 * time.Second)
 	}
-
-	err = execute.Command("xcode-select", "-p")
-
-	if err != nil {
-		return errors.New("La instalación de Xcode no puedo realizar correctamente")
-	}
-
-	fmt.Println("✦ La instalación de Xcode se ejecuto de manera correcta")
-
 	return nil
 }

@@ -6,7 +6,7 @@ import (
 )
 
 var AllSteps = []models.StepsModel{
-	{Name: "Xcode", Step: steps.InstallXcode},
+	{Name: "Xcode", Step: steps.Xcode},
 	{Name: "Homebrew", Step: steps.InstallHomebrew},
 	{Name: "Git", Step: steps.Git},
 }
