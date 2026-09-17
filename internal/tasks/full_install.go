@@ -1,22 +1,21 @@
 package tasks
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/sikzyo/4k1/internal/data"
 	"github.com/sikzyo/4k1/internal/execute"
+	"github.com/sikzyo/4k1/internal/menu"
 )
 
 func FullInstall() {
 
 	for _, step := range data.AllSteps {
 		execute.Command("clear")
-		cmd := step.Step()
+		err := step.Step()
 
-		if cmd != nil {
-			fmt.Println()
-			fmt.Println("-> Ocurrió un error al momento de ejecutar un proceso, por seguridad el script se va a detener")
+		if err != nil {
+			menu.ShowMessages(err.Error(), 0)
 			os.Exit(1)
 		}
 	}
