@@ -7,9 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Se agrega variable para manipular el Delay del mensaje en `ShowMessages`
+- Se agrega el Delay correspondiente al mensaje de error en el Menu Principal
+
 ### Changed
 
 - Mejorar la estructura del menu y manejo de errores
+- Se mejora el manejo de errores en `homebrew.go`
+- Se mejora el manejo de errores en `full_install.go`
 
 ### Removed
 
