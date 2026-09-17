@@ -24,12 +24,12 @@ func ShowMenu(Menu models.MenuModel) {
 	showDivider()
 }
 
-func ShowMessages(message string) {
+func ShowMessages(message string, delay int) {
 	execute.Command("clear")
 	showDivider()
 	fmt.Println("△ Mensaje:", message, "△")
 	showDivider()
-	time.Sleep(4 * time.Second)
+	time.Sleep(time.Duration(delay) * time.Second)
 }
 
 func showDivider() {
