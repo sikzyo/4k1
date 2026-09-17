@@ -44,7 +44,7 @@ func menuOptions(mainMenu models.MenuModel) {
 			fmt.Println("-> Gracias por utilizar 4k1")
 			return
 		default:
-			menu.ShowMessages("La opción que seleccionaste no es correcta, por favor inténtalo nuevamente")
+			menu.ShowMessages("La opción que seleccionaste no es correcta, por favor inténtalo nuevamente", 4)
 		}
 
 	}
