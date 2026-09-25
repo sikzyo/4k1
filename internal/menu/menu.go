@@ -4,7 +4,7 @@ package menu
 import "fmt"
 
 func ShowMenu() {
-	fmt.Println("Este es el menu")
+	showIcon()
 }
 
 func showIcon() {
@@ -13,4 +13,8 @@ func showIcon() {
 	fmt.Println(" / // /_/ //_/ / ")
 	fmt.Println("/__  __/ ,< / /  ")
 	fmt.Println("  /_/ /_/|_/_/   ")
+}
+
+// TODO: Se debe poder pasar las opciones al menu y este las debe de mostrar
+func showOptions() {
 }
