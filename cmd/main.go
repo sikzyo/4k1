@@ -6,9 +6,13 @@ import (
 
 func main() {
 	mainMenu := menu.Menu{
-		Name:        "Menu principal",
-		ShowLogo:    true,
-		MenuOptions: []string{"Instalación completa", "Instalación por partes"},
+		Title: "✦ Menu principal ✦",
+		Logo:  true,
+		Options: []menu.MenuOptions{
+			{Title: "Instalación completa"},
+			{Title: "Instalación por secciones"},
+		},
+		Fallback: "Salir de la aplicación",
 	}
 
 	menu.ShowMenu(mainMenu)
