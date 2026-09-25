@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"github.com/sikzyo/4k1/internal/menu"
+)
 
 func main() {
-	fmt.Println("Hola!")
+	mainMenu := menu.Menu{
+		Name:        "Menu principal",
+		ShowLogo:    true,
+		MenuOptions: []string{"Instalación completa", "Instalación por partes"},
+	}
+
+	menu.ShowMenu(mainMenu)
 }
