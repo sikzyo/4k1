@@ -3,8 +3,18 @@ package menu
 
 import "fmt"
 
-func ShowMenu() {
-	showIcon()
+type Menu struct {
+	Name        string
+	ShowLogo    bool
+	MenuOptions []string
+	Fallback    func()
+}
+
+func ShowMenu(currentMenu Menu) {
+	if currentMenu.ShowLogo {
+		showIcon()
+	}
+	fmt.Println(currentMenu.Name)
 }
 
 func showIcon() {
