@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.4] - 2026-10-07
+
+### Added
+
+- Add input package
+- Add interactivity to the menu
+
+### Fixed
+
+- Fix `TimeMessage` for use seconds
+- Fix style for the menu
+
 ## [0.0.3] - 2026-10-07
 
 ### Added
