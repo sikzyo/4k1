@@ -21,6 +21,7 @@ func ShowMenu(currentMenu Menu) {
 	showOptions(currentMenu.Options)
 	showDivider()
 	fmt.Println("0", "-", currentMenu.Fallback)
+	showDivider()
 }
 
 func showLogo() {
