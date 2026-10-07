@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.2] - 2026-10-07
+
+### Added
+
+- Add package `shell` for executing commands in the terminal
+- Add the 'clear' command to the `ShowMenu` function
+
 ## [0.0.1] - 2026-09-26
 
 ### Added
