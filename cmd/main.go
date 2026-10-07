@@ -7,6 +7,7 @@ import (
 	"github.com/sikzyo/4k1/internal/input"
 	"github.com/sikzyo/4k1/internal/menu"
 	"github.com/sikzyo/4k1/internal/message"
+	"github.com/sikzyo/4k1/internal/steps"
 )
 
 func main() {
@@ -15,7 +16,7 @@ func main() {
 		Logo:  true,
 		Options: []menu.MenuOptions{
 			{Title: "Instalación completa"},
-			{Title: "Instalación por secciones"},
+			// {Title: "Instalación por secciones"},
 		},
 		Fallback: "Salir de la aplicación",
 	}
@@ -32,13 +33,15 @@ func selectOption() {
 	response := input.GetInput()
 	switch response {
 	case "1":
-		fmt.Print("Opción aun no implementada")
-	case "2":
-		fmt.Print("Algún día implementare esto")
+		steps.FullInstall()
 	case "0":
-		fmt.Println("✦ Gracias por usar 4k1")
-		os.Exit(0)
+		exit4k1()
 	default:
 		message.TimeMessage("La opción seleccionada no esta disponible", 3)
 	}
+}
+
+func exit4k1() {
+	fmt.Println("✦ Gracias por usar 4k1 ✦")
+	os.Exit(0)
 }
