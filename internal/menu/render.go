@@ -1,8 +1,17 @@
 package menu
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+
+	"github.com/sikzyo/4k1/internal/shell"
+)
 
 func ShowMenu(currentMenu Menu) {
+	err := shell.RunCommand(true, "clear")
+	if err != nil {
+		os.Exit(1)
+	}
 	if currentMenu.Logo {
 		showLogo()
 	}
