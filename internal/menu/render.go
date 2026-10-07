@@ -2,15 +2,15 @@ package menu
 
 import (
 	"fmt"
-	"os"
 
+	"github.com/sikzyo/4k1/internal/message"
 	"github.com/sikzyo/4k1/internal/shell"
 )
 
 func ShowMenu(currentMenu Menu) {
 	err := shell.RunCommand(true, "clear")
 	if err != nil {
-		os.Exit(1)
+		message.ErrorMessage("Error al limpiar la pantalla", err)
 	}
 	if currentMenu.Logo {
 		showLogo()
