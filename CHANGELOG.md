@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.5] - 2026-10-08
+
+### Added
+
+- Add a function to execute the steps
+- Add the steps
+
+### Changed
+
+- The responsibility for exiting the app has been separated, and a feature to
+  start the full install has been added
+
 ## [0.0.4] - 2026-10-07
 
 ### Added
