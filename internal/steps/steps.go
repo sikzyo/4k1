@@ -8,4 +8,5 @@ type step struct {
 
 var AllSteps = []step{
 	{name: "Xcode", execute: Xcode},
+	{name: "Homebrew", execute: homebrew},
 }
