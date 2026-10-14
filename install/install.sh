@@ -3,7 +3,7 @@
 set -e
 
 REPO="sikzyo/4k1"
-BIN="4k1"
+BIN="4k1_darwin"
 
 OS="$(uname -s | tr '[:upper:]' '[:lower:]')"
 

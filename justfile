@@ -2,7 +2,7 @@ default:
   @just --list
 
 build:
-  go build -o bin/4k1 ./cmd
+  go build -o bin/4k1_darwin ./cmd
 
 run:
   go run ./cmd
