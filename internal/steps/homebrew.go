@@ -6,32 +6,25 @@ import (
 	"path/filepath"
 
 	"github.com/sikzyo/4k1/internal/download"
+	"github.com/sikzyo/4k1/internal/message"
 	"github.com/sikzyo/4k1/internal/shell"
 )
 
-func homebrew() (errorMessage string, err error) {
+func homebrew() {
 	fmt.Println("✦ Homebrew ✦")
-	err = validateHomebrew()
+	err := validateHomebrew()
 	if err == nil {
-		return "Homebrew ya se encuentra instalado", nil
+		return
 	}
 
-	err = installHomebrew()
-	if err != nil {
-		return "Error al momento de instalar Homebrew", err
-	}
+	installHomebrew()
 
-	err = configHomebrew()
-	if err != nil {
-		return "Error al configurar Homebrew", err
-	}
+	configHomebrew()
 
 	err = validateHomebrew()
 	if err != nil {
-		return "Homebrew no se puedo instalar de manera correcta", err
+		message.ErrorMessage("No se instalo correctamente Homebrew", err)
 	}
-
-	return "", nil
 }
 
 func validateHomebrew() error {
@@ -45,21 +38,20 @@ func validateHomebrew() error {
 func installHomebrew() error {
 	err := shell.RunCommand(false, "/bin/bash", "-c", "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)")
 	if err != nil {
-		return err
+		message.ErrorMessage("El comando de instalación presento un fallo", err)
 	}
 	return nil
 }
 
-func configHomebrew() error {
+func configHomebrew() {
 	userDir, err := os.UserHomeDir()
 	if err != nil {
-		return err
+		message.ErrorMessage("No se pudo obtener la carpeta del usuario", err)
 	}
 	path := filepath.Join(userDir, "test/prueba.md")
 
 	err = download.DownloadFiles("https://raw.githubusercontent.com/sikzyo/4k1/heads/main/config/.zprofile", path)
 	if err != nil {
-		return err
+		message.ErrorMessage("La descarga del archivo de configuración fallo", err)
 	}
-	return nil
 }

@@ -3,10 +3,13 @@ package steps
 
 type step struct {
 	name    string
-	execute func() (errorMessaje string, err error)
+	execute func()
 }
+
+var gitEmail string
 
 var AllSteps = []step{
 	{name: "Xcode", execute: Xcode},
 	{name: "Homebrew", execute: homebrew},
+	{name: "Git", execute: git},
 }

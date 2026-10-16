@@ -11,9 +11,7 @@ func FullInstall() {
 		if err != nil {
 			message.ErrorMessage("Error al limpiar la pantalla", err)
 		}
-		errorMessage, err := step.execute()
-		if err != nil {
-			message.ErrorMessage(errorMessage, err)
-		}
+
+		step.execute()
 	}
 }
