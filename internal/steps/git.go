@@ -48,6 +48,7 @@ func selectOption() {
 		switch response {
 		case "y", "Y":
 			configGit()
+			return
 		case "n", "N":
 			return
 		default:
