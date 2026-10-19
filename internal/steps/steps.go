@@ -22,6 +22,7 @@ var AllSteps = []step{
 	{name: "Homebrew", execute: homebrew},
 	{name: "Git", execute: git},
 	{name: "SSH", execute: ssh},
+	{name: "Fonts", execute: fonts},
 }
 
 func setUserDir() {
