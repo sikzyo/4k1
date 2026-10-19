@@ -2,7 +2,6 @@ package steps
 
 import (
 	"fmt"
-	"os"
 	"path/filepath"
 
 	"github.com/sikzyo/4k1/internal/download"
@@ -35,22 +34,20 @@ func validateHomebrew() error {
 	return nil
 }
 
-func installHomebrew() error {
+func installHomebrew() {
 	err := shell.RunCommand(false, "/bin/bash", "-c", "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)")
 	if err != nil {
 		message.ErrorMessage("El comando de instalación presento un fallo", err)
 	}
-	return nil
 }
 
 func configHomebrew() {
-	userDir, err := os.UserHomeDir()
-	if err != nil {
-		message.ErrorMessage("No se pudo obtener la carpeta del usuario", err)
+	if userDir == "" {
+		setUserDir()
 	}
-	path := filepath.Join(userDir, "test/prueba.md")
 
-	err = download.DownloadFiles("https://raw.githubusercontent.com/sikzyo/4k1/heads/main/config/.zprofile", path)
+	path := filepath.Join(userDir, ".zprofile")
+	err := download.DownloadFiles("https://raw.githubusercontent.com/sikzyo/4k1/heads/main/config/.zprofile", path)
 	if err != nil {
 		message.ErrorMessage("La descarga del archivo de configuración fallo", err)
 	}

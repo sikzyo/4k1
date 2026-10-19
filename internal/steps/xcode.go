@@ -9,26 +9,21 @@ import (
 )
 
 func Xcode() {
-	err := shell.RunCommand(true, "clear")
-	if err != nil {
-		message.ErrorMessage("Error al limpiar la pantalla", err)
-	}
-
 	fmt.Println("✦ Xcode ✦")
-	err = validatedXcode()
+	err := validateXcode()
 	if err == nil {
 		return
 	}
 
 	installXcode()
 
-	err = validatedXcode()
+	err = validateXcode()
 	if err != nil {
 		message.ErrorMessage("Xcode no se instalo correctamente", err)
 	}
 }
 
-func validatedXcode() error {
+func validateXcode() error {
 	err := shell.RunCommand(false, "xcode-select", "-p")
 	if err != nil {
 		return err
