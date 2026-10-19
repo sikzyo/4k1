@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-10-19
+
+### Added
+
+- Add git configuration file
+- Add SSH configuration
+
+### Changed
+
+- Separate git configuration into independent functions
+- Rename `validateXcode` function
+- Use new `userDir` variable
+
+### Fixed
+
+- Fix infinite loop when configuring git
+
 ## [0.3.0] - 2026-10-16
 
 ### Added
