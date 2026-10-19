@@ -57,23 +57,35 @@ func selectOption() {
 }
 
 func configGit() {
+	setGitUser()
+	setGitEmail()
+	setDefaultBranch()
+}
+
+func setGitEmail() {
+	fmt.Println("✦ Ingresa tu correo electrónico")
+	fmt.Print("-> ")
+
+	gitEmail = input.GetInput()
+	err := shell.RunCommand(false, "git", "config", "--global", "user.email", gitEmail)
+	if err != nil {
+		message.ErrorMessage("Error al configurar el correo electrónico", err)
+	}
+}
+
+func setGitUser() {
 	fmt.Println("✦ Ingresa tu nombre de usuario")
 	fmt.Print("-> ")
+
 	gitUsername := input.GetInput()
 	err := shell.RunCommand(false, "git", "config", "--global", "user.name", gitUsername)
 	if err != nil {
-		message.ErrorMessage("Ocurrió un error al configurar el nombre de usuario", err)
+		message.ErrorMessage("Error al configurar nombre de usuario", err)
 	}
+}
 
-	fmt.Println("✦ Ingresa tu correo electrónico")
-	fmt.Print("-> ")
-	gitEmail = input.GetInput()
-	err = shell.RunCommand(false, "git", "config", "--global", "user.email", gitEmail)
-	if err != nil {
-		message.ErrorMessage("Ocurrió un error al configurar el correo electrónico", err)
-	}
-
-	err = shell.RunCommand(false, "git", "config", "--global", "init.defaultBranch", "main")
+func setDefaultBranch() {
+	err := shell.RunCommand(false, "git", "config", "--global", "init.defaultBranch", "main")
 	if err != nil {
 		message.ErrorMessage("Error al configurar rama principal", err)
 	}
