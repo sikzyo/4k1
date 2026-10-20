@@ -24,6 +24,7 @@ var AllSteps = []step{
 	{name: "SSH", execute: ssh},
 	{name: "Fonts", execute: fonts},
 	{name: "Node", execute: node},
+	{name: "Go", execute: golang},
 }
 
 func setUserDir() {
