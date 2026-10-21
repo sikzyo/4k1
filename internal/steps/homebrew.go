@@ -2,12 +2,15 @@ package steps
 
 import (
 	"fmt"
+	"os"
 	"path/filepath"
 
 	"github.com/sikzyo/4k1/internal/download"
 	"github.com/sikzyo/4k1/internal/message"
 	"github.com/sikzyo/4k1/internal/shell"
 )
+
+const homebrewInstallURL = "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
 
 func homebrew() {
 	fmt.Println("✦ Homebrew ✦")
@@ -35,9 +38,32 @@ func validateHomebrew() error {
 }
 
 func installHomebrew() {
-	err := shell.RunCommand(true, "/bin/bash", "-c", "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)")
+	tempDir, err := os.MkdirTemp("", "homebrew-installation-*")
+	if err != nil {
+		message.ErrorMessage("No se pudo crear la carpeta temporal", err)
+	}
+
+	scriptPath := filepath.Join(tempDir, "install.sh")
+
+	err = download.DownloadFiles(homebrewInstallURL, scriptPath)
+	if err != nil {
+		removeTempDir(tempDir)
+		message.ErrorMessage("La descarga del archivo de instalación fallo", err)
+	}
+
+	err = shell.RunCommand(true, "/bin/bash", scriptPath)
+
+	removeTempDir(tempDir)
+
 	if err != nil {
 		message.ErrorMessage("El comando de instalación presento un fallo", err)
+	}
+}
+
+func removeTempDir(tempDir string) {
+	err := os.RemoveAll(tempDir)
+	if err != nil {
+		message.ErrorMessage("No se pudo eliminar la carpeta temporal", err)
 	}
 }
 
