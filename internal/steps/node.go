@@ -10,7 +10,7 @@ import (
 var javaScriptTools = []string{"node", "pnpm"}
 
 func node() {
-	fmt.Println("✦ Node y Pnpm")
+	fmt.Println("✦ Node y Pnpm ✦")
 
 	for _, tool := range javaScriptTools {
 		err := validateNode(tool)
@@ -38,7 +38,7 @@ func validateNode(currentTool string) error {
 
 func installNode(currentTool string) {
 	errorMessage := "Error al instalar " + currentTool
-	err := shell.RunCommand(false, "brew", "install", currentTool)
+	err := shell.RunCommand(true, "brew", "install", currentTool)
 	if err != nil {
 		message.ErrorMessage(errorMessage, err)
 	}

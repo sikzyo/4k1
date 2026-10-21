@@ -10,7 +10,7 @@ import (
 var currentFont string = "font-jetbrains-mono-nerd-font"
 
 func fonts() {
-	fmt.Println("✦ Fuentes")
+	fmt.Println("✦ Fuentes ✦")
 
 	err := validateFont()
 	if err == nil {
@@ -34,7 +34,7 @@ func validateFont() error {
 }
 
 func installFont() {
-	err := shell.RunCommand(false, "brew", "install", "--cask", currentFont)
+	err := shell.RunCommand(true, "brew", "install", "--cask", currentFont)
 	if err != nil {
 		message.ErrorMessage("No se pudo instalar la fuente", err)
 	}

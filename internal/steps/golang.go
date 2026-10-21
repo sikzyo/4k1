@@ -34,7 +34,7 @@ func validateGolang() error {
 }
 
 func installGolang() {
-	err := shell.RunCommand(false, "brew", "install", "go")
+	err := shell.RunCommand(true, "brew", "install", "go")
 	if err != nil {
 		message.ErrorMessage("Error al instalar Go", err)
 	}
