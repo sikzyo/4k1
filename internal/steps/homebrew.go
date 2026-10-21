@@ -23,6 +23,8 @@ func homebrew() {
 
 	configHomebrew()
 
+	updatePath()
+
 	err = validateHomebrew()
 	if err != nil {
 		message.ErrorMessage("No se instalo correctamente Homebrew", err)
@@ -64,6 +66,13 @@ func removeTempDir(tempDir string) {
 	err := os.RemoveAll(tempDir)
 	if err != nil {
 		message.ErrorMessage("No se pudo eliminar la carpeta temporal", err)
+	}
+}
+
+func updatePath() {
+	err := os.Setenv("PATH", "/opt/homebrew/bin:/opt/homebrew/sbin:"+os.Getenv("PATH"))
+	if err != nil {
+		message.ErrorMessage("Error al actualizar el path", err)
 	}
 }
 
