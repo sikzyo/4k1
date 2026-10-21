@@ -35,7 +35,7 @@ func validateHomebrew() error {
 }
 
 func installHomebrew() {
-	err := shell.RunCommand(false, "/bin/bash", "-c", "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)")
+	err := shell.RunCommand(true, "/bin/bash", "-c", "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)")
 	if err != nil {
 		message.ErrorMessage("El comando de instalación presento un fallo", err)
 	}
