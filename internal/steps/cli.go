@@ -1,6 +1,8 @@
 package steps
 
 import (
+	"fmt"
+
 	"github.com/sikzyo/4k1/internal/message"
 	"github.com/sikzyo/4k1/internal/shell"
 )
@@ -8,6 +10,8 @@ import (
 var cliTools = []string{"fzf"}
 
 func cli() {
+	fmt.Println("✦ cli ✦")
+
 	for _, tool := range cliTools {
 		err := validateCli(tool)
 		if err == nil {
@@ -33,7 +37,7 @@ func validateCli(currentTool string) error {
 }
 
 func installCli(currentTool string, errorMessage string) {
-	err := shell.RunCommand(false, "brew", "install", currentTool)
+	err := shell.RunCommand(true, "brew", "install", currentTool)
 	if err != nil {
 		message.ErrorMessage(errorMessage, err)
 	}

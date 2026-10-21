@@ -34,7 +34,7 @@ func validateGit() error {
 }
 
 func installGit() {
-	err := shell.RunCommand(false, "brew", "install", "git")
+	err := shell.RunCommand(true, "brew", "install", "git")
 	if err != nil {
 		message.ErrorMessage("El comando para instalar Git fallo", err)
 	}

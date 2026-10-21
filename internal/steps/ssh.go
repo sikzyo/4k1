@@ -1,6 +1,7 @@
 package steps
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 
@@ -10,6 +11,8 @@ import (
 )
 
 func ssh() {
+	fmt.Println("✦ SSH ✦")
+
 	err := validateSSH()
 	if err == nil {
 		return
