@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-10-27
+
+### Added
+
+- Add ripgrep installer
+
+### Changed
+
+- Update justfile to improve the build on mac and add build process on Linux
+
 ## [1.0.0] - 2026-10-21
 
 ### Changed
