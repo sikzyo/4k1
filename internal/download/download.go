@@ -2,6 +2,7 @@
 package download
 
 import (
+	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -23,7 +24,7 @@ func DownloadFiles(url, path string) error {
 	}()
 
 	if resp.StatusCode != http.StatusOK {
-		return err
+		return fmt.Errorf("la descarga falló, el servidor respondió: %s", resp.Status)
 	}
 
 	file, err := os.Create(path)
