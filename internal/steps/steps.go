@@ -1,21 +1,14 @@
 // Package steps is to perform the installation steps in order
 package steps
 
-import (
-	"os"
-
-	"github.com/sikzyo/4k1/internal/message"
-)
+import "github.com/sikzyo/4k1/internal/config"
 
 type step struct {
 	name    string
 	execute func()
 }
 
-var (
-	gitEmail string
-	userDir  string
-)
+var gitEmail string
 
 var AllSteps = []step{
 	{name: "Xcode", execute: Xcode},
@@ -26,13 +19,5 @@ var AllSteps = []step{
 	{name: "Node", execute: node},
 	{name: "Go", execute: golang},
 	{name: "Terminal apps", execute: cli},
-}
-
-func setUserDir() {
-	var err error
-
-	userDir, err = os.UserHomeDir()
-	if err != nil {
-		message.ErrorMessage("Error al obtener carpeta del usuario", err)
-	}
+	{name: "Apply Configuration", execute: config.ApplyConfig},
 }

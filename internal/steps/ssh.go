@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/sikzyo/4k1/internal/dir"
 	"github.com/sikzyo/4k1/internal/download"
 	"github.com/sikzyo/4k1/internal/message"
 	"github.com/sikzyo/4k1/internal/shell"
@@ -25,11 +26,11 @@ func ssh() {
 func validateSSH() error {
 	var err error
 
-	if userDir == "" {
-		setUserDir()
+	if dir.UserDir == "" {
+		dir.SetUserDir()
 	}
 
-	file := filepath.Join(userDir, ".ssh", "github")
+	file := filepath.Join(dir.UserDir, ".ssh", "github")
 	_, err = os.Stat(file)
 	if err != nil {
 		return err
@@ -39,7 +40,7 @@ func validateSSH() error {
 }
 
 func generateSSH() {
-	sshFile := filepath.Join(userDir, ".ssh", "github")
+	sshFile := filepath.Join(dir.UserDir, ".ssh", "github")
 
 	if gitEmail == "" {
 		setGitEmail()
@@ -52,7 +53,7 @@ func generateSSH() {
 }
 
 func sshAgent() {
-	sshDir := filepath.Join(userDir, ".ssh")
+	sshDir := filepath.Join(dir.UserDir, ".ssh")
 	configFile := filepath.Join(sshDir, "config")
 	privateFile := filepath.Join(sshDir, "github")
 

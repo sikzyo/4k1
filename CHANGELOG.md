@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-10-30
+
+### Added
+
+- Add fd and bat installer
+- Add dir function
+- Add .zshrc config file
+- Add alias.zsh file
+- Add configuration to zshrc
+- Add new executor function
+- Add the configuration applier to the existing steps
+
+### Fixed
+
+- Fix an invisible error that occurs when downloading files
+
+### Update
+
+- Update homebrew and ssh to use the new dir function
+
 ## [1.1.0] - 2026-10-27
 
 ### Added
