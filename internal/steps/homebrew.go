@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/sikzyo/4k1/internal/dir"
 	"github.com/sikzyo/4k1/internal/download"
 	"github.com/sikzyo/4k1/internal/message"
 	"github.com/sikzyo/4k1/internal/shell"
@@ -77,11 +78,11 @@ func updatePath() {
 }
 
 func configHomebrew() {
-	if userDir == "" {
-		setUserDir()
+	if dir.UserDir == "" {
+		dir.SetUserDir()
 	}
 
-	path := filepath.Join(userDir, ".zprofile")
+	path := filepath.Join(dir.UserDir, ".zprofile")
 	err := download.DownloadFiles("https://raw.githubusercontent.com/sikzyo/4k1/heads/main/config/.zprofile", path)
 	if err != nil {
 		message.ErrorMessage("La descarga del archivo de configuración fallo", err)
