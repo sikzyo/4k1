@@ -1,6 +1,8 @@
 // Package steps is to perform the installation steps in order
 package steps
 
+import "github.com/sikzyo/4k1/internal/config"
+
 type step struct {
 	name    string
 	execute func()
@@ -17,4 +19,5 @@ var AllSteps = []step{
 	{name: "Node", execute: node},
 	{name: "Go", execute: golang},
 	{name: "Terminal apps", execute: cli},
+	{name: "Apply Configuration", execute: config.ApplyConfig},
 }
