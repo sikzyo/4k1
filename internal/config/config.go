@@ -8,4 +8,7 @@ type config struct {
 
 var allConfig = []config{
 	{name: "zshrc", execute: zshrcConfig},
+	{name: "fzf", execute: fzfConfig},
+	{name: "bat", execute: batConfig},
+	{name: "micro", execute: microConfig},
 }

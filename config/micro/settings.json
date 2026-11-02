@@ -1,0 +1,10 @@
+{
+  "colorscheme": "rose-pine",
+  "basename": true,
+  "diffgutter": true,
+  "rmtrailingws": true,
+  "mkparents": true,
+  "softwrap": true,
+  "wordwrap": true,
+  "hlsearch": true
+}

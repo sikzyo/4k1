@@ -7,7 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## 1.3.0 - 2026-10-31
+## [1.4.0] - 2026-11-02
+
+### Added
+
+- Add rose-pine theme for fzf
+- Add config file for bat
+- Add rose-pine theme for bat
+- Add rose-pine theme for micro
+- Add cofig file for micro
+
+### Changed
+
+- Update parameter name in the download function
+
+## [1.3.0] - 2026-10-31
 
 ### Added
 
