@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 )
 
-func DownloadFiles(url, path string) error {
-	err := os.MkdirAll(filepath.Dir(path), 0o755)
+func DownloadFiles(url, filePath string) error {
+	err := os.MkdirAll(filepath.Dir(filePath), 0o755)
 	if err != nil {
 		return err
 	}
@@ -27,7 +27,7 @@ func DownloadFiles(url, path string) error {
 		return fmt.Errorf("la descarga falló, el servidor respondió: %s", resp.Status)
 	}
 
-	file, err := os.Create(path)
+	file, err := os.Create(filePath)
 	if err != nil {
 		return err
 	}
