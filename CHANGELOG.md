@@ -16,7 +16,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add rose-pine theme for bat
 - Add rose-pine theme for micro
 - Add cofig file for micro
-- Add
 
 ### Changed
 
