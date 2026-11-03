@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-11-03
+
+### Added
+
+- Add rose-pine theme for eza
+- Add new alias for eza
+- Add eza config
+
 ## [1.4.0] - 2026-11-02
 
 ### Added
