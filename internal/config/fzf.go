@@ -27,8 +27,9 @@ func setRosepineFzf() {
 
 	fzfDir = filepath.Join(dir.ConfigDir, "fzf")
 	fzfFile = filepath.Join(fzfDir, "rose-pine.zsh")
+	downloadURL := filepath.Join(download.ConfigURL, "fzf", "rose-pine.zsh")
 
-	err := download.DownloadFiles("https://raw.githubusercontent.com/sikzyo/4k1/heads/main/config/fzf/rose-pine.zsh", fzfFile)
+	err := download.DownloadFiles(downloadURL, fzfFile)
 	if err != nil {
 		message.ErrorMessage("No se pudo descargar el tema de color para fzf", err)
 	}
