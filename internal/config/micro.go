@@ -40,8 +40,9 @@ func setMicroConfig() {
 func setThemeMicro() {
 	microThemeDir = filepath.Join(microDir, "colorschemes")
 	microThemeFile = filepath.Join(microThemeDir, "rose-pine.micro")
+	downloadURL := filepath.Join(download.ConfigUrl, "micro", "colorschemes", "rose-pine.micro")
 
-	err := download.DownloadFiles("https://raw.githubusercontent.com/sikzyo/4k1/heads/main/config/micro/colorschemes/rose-pine.micro", microThemeFile)
+	err := download.DownloadFiles(downloadURL, microThemeFile)
 	if err != nil {
 		message.ErrorMessage("No se pudo descargar el tema para micro", err)
 	}
