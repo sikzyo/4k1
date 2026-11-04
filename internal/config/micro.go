@@ -30,7 +30,7 @@ func setMicroConfig() {
 
 	microDir = filepath.Join(dir.ConfigDir, "micro")
 	microConfigFile = filepath.Join(microDir, "settings.json")
-	downloadURL := filepath.Join(download.ConfigUrl, "micro", "settings.json")
+	downloadURL := filepath.Join(download.ConfigURL, "micro", "settings.json")
 
 	err := download.DownloadFiles(downloadURL, microConfigFile)
 	if err != nil {
@@ -41,7 +41,7 @@ func setMicroConfig() {
 func setThemeMicro() {
 	microThemeDir = filepath.Join(microDir, "colorschemes")
 	microThemeFile = filepath.Join(microThemeDir, "rose-pine.micro")
-	downloadURL := filepath.Join(download.ConfigUrl, "micro", "colorschemes", "rose-pine.micro")
+	downloadURL := filepath.Join(download.ConfigURL, "micro", "colorschemes", "rose-pine.micro")
 
 	err := download.DownloadFiles(downloadURL, microThemeFile)
 	if err != nil {

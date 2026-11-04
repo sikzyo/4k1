@@ -31,8 +31,9 @@ func setBatConfig() {
 
 	batDir = filepath.Join(dir.ConfigDir, "bat")
 	batConfigFile = filepath.Join(batDir, "config")
+	downloadURL := filepath.Join(download.ConfigURL, "bat", "config")
 
-	err := download.DownloadFiles("https://raw.githubusercontent.com/sikzyo/4k1/heads/main/config/bat/config", batConfigFile)
+	err := download.DownloadFiles(downloadURL, batConfigFile)
 	if err != nil {
 		message.ErrorMessage("No se pudo descargar el archivo de configuración para bat", err)
 	}
@@ -45,8 +46,9 @@ func setRosepineBat() {
 
 	batThemesDir = filepath.Join(batDir, "themes")
 	batThemeFile = filepath.Join(batThemesDir, "rose-pine.tmTheme")
+	downloadURL := filepath.Join(download.ConfigURL, "bat", "themes", "rose-pine.tmTheme")
 
-	err := download.DownloadFiles("https://raw.githubusercontent.com/sikzyo/4k1/heads/main/config/bat/themes/rose-pine.tmTheme", batThemeFile)
+	err := download.DownloadFiles(downloadURL, batThemeFile)
 	if err != nil {
 		message.ErrorMessage("No se pudo descargar el tema de color para bat", err)
 	}

@@ -83,7 +83,7 @@ func configHomebrew() {
 	}
 
 	path := filepath.Join(dir.UserDir, ".zprofile")
-	downloadURL := filepath.Join(download.ConfigUrl, ".zprofile")
+	downloadURL := filepath.Join(download.ConfigURL, ".zprofile")
 	err := download.DownloadFiles(downloadURL, path)
 	if err != nil {
 		message.ErrorMessage("La descarga del archivo de configuración fallo", err)

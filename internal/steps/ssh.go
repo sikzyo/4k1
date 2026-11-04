@@ -56,7 +56,7 @@ func sshAgent() {
 	sshDir := filepath.Join(dir.UserDir, ".ssh")
 	configFile := filepath.Join(sshDir, "config")
 	privateFile := filepath.Join(sshDir, "github")
-	downloadURL := filepath.Join(download.ConfigUrl, "ssh", "config")
+	downloadURL := filepath.Join(download.ConfigURL, "ssh", "config")
 
 	err := os.MkdirAll(sshDir, 0o700)
 	if err != nil {
