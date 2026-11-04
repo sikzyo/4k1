@@ -30,8 +30,9 @@ func setMicroConfig() {
 
 	microDir = filepath.Join(dir.ConfigDir, "micro")
 	microConfigFile = filepath.Join(microDir, "settings.json")
+	downloadURL := filepath.Join(download.ConfigUrl, "micro", "settings.json")
 
-	err := download.DownloadFiles("https://raw.githubusercontent.com/sikzyo/4k1/heads/main/config/micro/settings.json", microConfigFile)
+	err := download.DownloadFiles(downloadURL, microConfigFile)
 	if err != nil {
 		message.ErrorMessage("No se pudo descargar la configuración de Micro", err)
 	}
