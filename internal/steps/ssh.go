@@ -56,13 +56,14 @@ func sshAgent() {
 	sshDir := filepath.Join(dir.UserDir, ".ssh")
 	configFile := filepath.Join(sshDir, "config")
 	privateFile := filepath.Join(sshDir, "github")
+	downloadURL := filepath.Join(download.ConfigURL, "ssh", "config")
 
 	err := os.MkdirAll(sshDir, 0o700)
 	if err != nil {
 		message.ErrorMessage("Error al crear el directorio .ssh", err)
 	}
 
-	err = download.DownloadFiles("https://raw.githubusercontent.com/sikzyo/4k1/main/config/ssh/config", configFile)
+	err = download.DownloadFiles(downloadURL, configFile)
 	if err != nil {
 		message.ErrorMessage("Error al descargar archivo de configuración", err)
 	}

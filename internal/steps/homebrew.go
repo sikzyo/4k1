@@ -83,7 +83,8 @@ func configHomebrew() {
 	}
 
 	path := filepath.Join(dir.UserDir, ".zprofile")
-	err := download.DownloadFiles("https://raw.githubusercontent.com/sikzyo/4k1/heads/main/config/.zprofile", path)
+	downloadURL := filepath.Join(download.ConfigURL, ".zprofile")
+	err := download.DownloadFiles(downloadURL, path)
 	if err != nil {
 		message.ErrorMessage("La descarga del archivo de configuración fallo", err)
 	}
