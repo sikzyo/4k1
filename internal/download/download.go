@@ -9,6 +9,8 @@ import (
 	"path/filepath"
 )
 
+const ConfigUrl = "https://raw.githubusercontent.com/sikzyo/4k1/heads/main/config"
+
 func DownloadFiles(url, filePath string) error {
 	err := os.MkdirAll(filepath.Dir(filePath), 0o755)
 	if err != nil {
