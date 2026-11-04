@@ -19,5 +19,6 @@ var AllSteps = []step{
 	{name: "Node", execute: node},
 	{name: "Go", execute: golang},
 	{name: "Terminal apps", execute: cli},
+	{name: "GUI Apps", execute: gui},
 	{name: "Apply Configuration", execute: config.ApplyConfig},
 }
