@@ -2,7 +2,7 @@ package config
 
 import (
 	"fmt"
-	"path"
+	"net/url"
 	"path/filepath"
 
 	"github.com/sikzyo/4k1/internal/dir"
@@ -28,9 +28,11 @@ func setThemeEza() {
 
 	ezaDir = filepath.Join(dir.ConfigDir, "eza")
 	ezaThemeFile = filepath.Join(ezaDir, "theme.yaml")
-	downloadURL := path.Join(download.ConfigURL, "eza", "theme.yaml")
+	// FIXME: encontrar una mejor manera de generar las URLs dinámicas
+	baseURL, _ := url.Parse(download.ConfigURL)
+	downloadURL := baseURL.JoinPath("eza", "theme.yaml")
 
-	err := download.DownloadFiles(downloadURL, ezaThemeFile)
+	err := download.DownloadFiles(downloadURL.String(), ezaThemeFile)
 	if err != nil {
 		message.ErrorMessage("No se pudo descargar el tema para eza", err)
 	}
