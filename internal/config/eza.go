@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"path"
 	"path/filepath"
 
 	"github.com/sikzyo/4k1/internal/dir"
@@ -27,7 +28,7 @@ func setThemeEza() {
 
 	ezaDir = filepath.Join(dir.ConfigDir, "eza")
 	ezaThemeFile = filepath.Join(ezaDir, "theme.yaml")
-	downloadURL := filepath.Join(download.ConfigURL, "eza", "theme.yaml")
+	downloadURL := path.Join(download.ConfigURL, "eza", "theme.yaml")
 
 	err := download.DownloadFiles(downloadURL, ezaThemeFile)
 	if err != nil {

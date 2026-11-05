@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"path"
 	"path/filepath"
 
 	"github.com/sikzyo/4k1/internal/dir"
@@ -27,7 +28,7 @@ func setRosepineFzf() {
 
 	fzfDir = filepath.Join(dir.ConfigDir, "fzf")
 	fzfFile = filepath.Join(fzfDir, "rose-pine.zsh")
-	downloadURL := filepath.Join(download.ConfigURL, "fzf", "rose-pine.zsh")
+	downloadURL := path.Join(download.ConfigURL, "fzf", "rose-pine.zsh")
 
 	err := download.DownloadFiles(downloadURL, fzfFile)
 	if err != nil {
