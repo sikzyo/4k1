@@ -2,8 +2,8 @@ package steps
 
 import (
 	"fmt"
+	"net/url"
 	"os"
-	"path"
 	"path/filepath"
 
 	"github.com/sikzyo/4k1/internal/dir"
@@ -84,8 +84,9 @@ func configHomebrew() {
 	}
 
 	pathFile := filepath.Join(dir.UserDir, ".zprofile")
-	downloadURL := path.Join(download.ConfigURL, ".zprofile")
-	err := download.DownloadFiles(downloadURL, pathFile)
+	baseURL, _ := url.Parse(download.ConfigURL)
+	downloadURL := baseURL.JoinPath(".zprofile")
+	err := download.DownloadFiles(downloadURL.String(), pathFile)
 	if err != nil {
 		message.ErrorMessage("La descarga del archivo de configuración fallo", err)
 	}

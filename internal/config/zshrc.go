@@ -2,8 +2,8 @@ package config
 
 import (
 	"fmt"
+	"net/url"
 	"os"
-	"path"
 	"path/filepath"
 
 	"github.com/sikzyo/4k1/internal/dir"
@@ -24,9 +24,11 @@ func getZshrc() {
 	}
 
 	zshrcFile := filepath.Join(dir.UserDir, ".zshrc")
-	downloadURL := path.Join(download.ConfigURL, ".zshrc")
+	// FIXME: encontrar una mejor manera de generar las URLs dinámicas
+	baseURL, _ := url.Parse(download.ConfigURL)
+	downloadURL := baseURL.JoinPath(".zshrc")
 
-	err := download.DownloadFiles(downloadURL, zshrcFile)
+	err := download.DownloadFiles(downloadURL.String(), zshrcFile)
 	if err != nil {
 		message.ErrorMessage("No se pudo descargar el archivo .zshrc correctamente", err)
 	}
@@ -39,14 +41,16 @@ func getAlias() {
 
 	zshDir := filepath.Join(dir.ConfigDir, "zsh")
 	aliasFile := filepath.Join(zshDir, "alias.zsh")
-	downloadURL := path.Join(download.ConfigURL, "zsh", "alias.zsh")
+	// FIXME: encontrar una mejor manera de generar las URLs dinámicas
+	baseURL, _ := url.Parse(download.ConfigURL)
+	downloadURL := baseURL.JoinPath("zsh", "alias.zsh")
 
 	err := os.MkdirAll(zshDir, 0o755)
 	if err != nil {
 		message.ErrorMessage("Error al crear la carpeta para guardar el alias", err)
 	}
 
-	err = download.DownloadFiles(downloadURL, aliasFile)
+	err = download.DownloadFiles(downloadURL.String(), aliasFile)
 	if err != nil {
 		message.ErrorMessage("No se pudo descargar el archivo alias.zsh correctamente", err)
 	}
