@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-11-05
+
+### Added
+
+- Add GUI Installer
+- Add Helium browser and KeePassXC to GUI installer
+
 ## [1.5.1] - 2026-11-04
 
 ### Changed
