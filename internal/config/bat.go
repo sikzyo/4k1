@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"path"
 	"path/filepath"
 
 	"github.com/sikzyo/4k1/internal/dir"
@@ -31,7 +32,7 @@ func setBatConfig() {
 
 	batDir = filepath.Join(dir.ConfigDir, "bat")
 	batConfigFile = filepath.Join(batDir, "config")
-	downloadURL := filepath.Join(download.ConfigURL, "bat", "config")
+	downloadURL := path.Join(download.ConfigURL, "bat", "config")
 
 	err := download.DownloadFiles(downloadURL, batConfigFile)
 	if err != nil {
@@ -46,7 +47,7 @@ func setRosepineBat() {
 
 	batThemesDir = filepath.Join(batDir, "themes")
 	batThemeFile = filepath.Join(batThemesDir, "rose-pine.tmTheme")
-	downloadURL := filepath.Join(download.ConfigURL, "bat", "themes", "rose-pine.tmTheme")
+	downloadURL := path.Join(download.ConfigURL, "bat", "themes", "rose-pine.tmTheme")
 
 	err := download.DownloadFiles(downloadURL, batThemeFile)
 	if err != nil {
