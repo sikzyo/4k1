@@ -11,8 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add `just` installer
-- Clone the LazyVim starter to `~/.config/nvim` when applying configurations
+- Add `just` to the CLI tools installed by the installer
+- Configure Neovim by cloning the LazyVim starter into `~/.config/nvim` when applying configurations
+
+### Changed
+
+- Update the error message displayed when cloning the LazyVim starter fails
 
 ## [2.4.0] - 2026-11-06
 
