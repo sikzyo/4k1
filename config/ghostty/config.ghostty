@@ -1,0 +1,35 @@
+# Typography
+font-family = JetBrains Mono
+font-size = 13.5
+adjust-cell-height = 6%
+
+# Colors | Rosé Pine (built-in)
+theme = Rose Pine
+split-divider-color = #403D52
+
+# Cursor
+cursor-style = bar
+cursor-style-blink = false
+
+# Window
+window-theme = dark
+window-decoration = auto
+window-padding-x = 14
+window-padding-y = 12
+window-padding-balance = true
+window-padding-color = background
+
+# Translucency
+# Hyprland blur must be configured in the compositor.
+background-opacity = 0.94
+background-blur = true
+
+# Minimal interface
+scrollbar = never
+resize-overlay = never
+mouse-hide-while-typing = true
+unfocused-split-opacity = 0.90
+
+# Platform-specific options
+macos-titlebar-style = hidden
+gtk-titlebar = false
