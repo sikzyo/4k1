@@ -5,11 +5,14 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"os"
 	"path/filepath"
+
+	"github.com/sikzyo/4k1/internal/message"
 )
 
-const ConfigURL = "https://raw.githubusercontent.com/sikzyo/4k1/main/config"
+const BaseURL = "https://raw.githubusercontent.com/sikzyo/4k1/main/config"
 
 func DownloadFiles(url, filePath string) error {
 	err := os.MkdirAll(filepath.Dir(filePath), 0o755)
@@ -43,4 +46,12 @@ func DownloadFiles(url, filePath string) error {
 	}
 
 	return nil
+}
+
+func GetDownloadURL(routes ...string) string {
+	endPoint, err := url.JoinPath(BaseURL, routes...)
+	if err != nil {
+		message.ErrorMessage("No se pudo generar la URL para realizar la descarga", err)
+	}
+	return endPoint
 }

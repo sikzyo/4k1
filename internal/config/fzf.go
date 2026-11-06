@@ -2,7 +2,6 @@ package config
 
 import (
 	"fmt"
-	"net/url"
 	"path/filepath"
 
 	"github.com/sikzyo/4k1/internal/dir"
@@ -28,11 +27,9 @@ func setRosepineFzf() {
 
 	fzfDir = filepath.Join(dir.ConfigDir, "fzf")
 	fzfFile = filepath.Join(fzfDir, "rose-pine.zsh")
-	// FIXME: encontrar una mejor manera de generar las URLs dinámicas
-	baseURL, _ := url.Parse(download.ConfigURL)
-	downloadURL := baseURL.JoinPath("fzf", "rose-pine.zsh")
+	downloadURL := download.GetDownloadURL("fzf", "rose-pine.zsh")
 
-	err := download.DownloadFiles(downloadURL.String(), fzfFile)
+	err := download.DownloadFiles(downloadURL, fzfFile)
 	if err != nil {
 		message.ErrorMessage("No se pudo descargar el tema de color para fzf", err)
 	}

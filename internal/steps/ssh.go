@@ -2,7 +2,6 @@ package steps
 
 import (
 	"fmt"
-	"net/url"
 	"os"
 	"path/filepath"
 
@@ -57,16 +56,14 @@ func sshAgent() {
 	sshDir := filepath.Join(dir.UserDir, ".ssh")
 	configFile := filepath.Join(sshDir, "config")
 	privateFile := filepath.Join(sshDir, "github")
-	// FIXME: encontrar una mejor manera de generar las URLs dinámicas
-	baseURL, _ := url.Parse(download.ConfigURL)
-	downloadURL := baseURL.JoinPath("ssh", "config")
+	downloadURL := download.GetDownloadURL("ssh", "config")
 
 	err := os.MkdirAll(sshDir, 0o700)
 	if err != nil {
 		message.ErrorMessage("Error al crear el directorio .ssh", err)
 	}
 
-	err = download.DownloadFiles(downloadURL.String(), configFile)
+	err = download.DownloadFiles(downloadURL, configFile)
 	if err != nil {
 		message.ErrorMessage("Error al descargar archivo de configuración", err)
 	}

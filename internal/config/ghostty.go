@@ -2,7 +2,6 @@ package config
 
 import (
 	"fmt"
-	"net/url"
 	"path/filepath"
 
 	"github.com/sikzyo/4k1/internal/dir"
@@ -24,10 +23,9 @@ func ghosttyConfig() {
 
 	ghosttyConfigDir = filepath.Join(dir.ConfigDir, "ghostty")
 	ghosttyConfigFile = filepath.Join(ghosttyConfigDir, "config.ghostty")
-	baseURL, _ := url.Parse(download.ConfigURL)
-	downloadURL := baseURL.JoinPath("ghostty", "config.ghostty")
+	downloadURL := download.GetDownloadURL("ghostty", "config.ghostty")
 
-	if err := download.DownloadFiles(downloadURL.String(), ghosttyConfigFile); err != nil {
+	if err := download.DownloadFiles(downloadURL, ghosttyConfigFile); err != nil {
 		message.ErrorMessage("No se pudo descargar la configuración de Ghostty", err)
 	}
 }
