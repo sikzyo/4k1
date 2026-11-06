@@ -7,7 +7,7 @@ import (
 	"github.com/sikzyo/4k1/internal/shell"
 )
 
-var cliTools = []string{"fzf", "ripgrep", "fd", "bat", "micro", "eza"}
+var cliTools = []string{"fzf", "ripgrep", "fd", "bat", "micro", "eza", "tree-sitter-cli"}
 
 func cli() {
 	fmt.Println("✦ cli ✦")
