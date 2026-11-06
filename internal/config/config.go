@@ -11,6 +11,7 @@ var allConfig = []config{
 	{name: "fzf", execute: fzfConfig},
 	{name: "bat", execute: batConfig},
 	{name: "micro", execute: microConfig},
+	{name: "nvim", execute: nvimConfig},
 	{name: "eza", execute: ezaConfig},
 	{name: "ghostty", execute: ghosttyConfig},
 }
