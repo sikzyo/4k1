@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.3.1] - 2026-11-06
+
+### Added
+
+- Add Ghostty configuration file with the Rosé Pine theme
+- Download Ghostty configuration to `~/.config/ghostty/config.ghostty` when applying configurations
+
 ## [2.3.0] - 2026-11-06
 
 ### Added
