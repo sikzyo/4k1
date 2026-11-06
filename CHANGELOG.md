@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.3.2] - 2026-11-06
+
+### Added
+
+- Add `exports.zsh` for environment variables, downloaded to `~/.config/zsh/exports.zsh` and sourced from `.zshrc`
+
+### Fixed
+
+- Set `EZA_CONFIG_DIR` to `~/.config/eza` so eza loads the installed Rosé Pine theme on macOS
+
 ## [2.3.1] - 2026-11-06
 
 ### Added

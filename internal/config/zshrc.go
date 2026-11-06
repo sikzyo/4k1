@@ -15,7 +15,24 @@ func zshrcConfig() {
 	fmt.Println("✦ zsh ✦")
 
 	getZshrc()
+	getExports()
 	getAlias()
+}
+
+func getExports() {
+	if dir.ConfigDir == "" {
+		dir.SetConfigDir()
+	}
+
+	exportsFile := filepath.Join(dir.ConfigDir, "zsh", "exports.zsh")
+	// FIXME: encontrar una mejor manera de generar las URLs dinámicas
+	baseURL, _ := url.Parse(download.ConfigURL)
+	downloadURL := baseURL.JoinPath("zsh", "exports.zsh")
+
+	err := download.DownloadFiles(downloadURL.String(), exportsFile)
+	if err != nil {
+		message.ErrorMessage("No se pudo descargar el archivo exports.zsh correctamente", err)
+	}
 }
 
 func getZshrc() {
