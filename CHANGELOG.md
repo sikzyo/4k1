@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.5.0] - 2026-11-06
+
+### Added
+
+- Add `just` installer
+- Clone the LazyVim starter to `~/.config/nvim` when applying configurations
+
 ## [2.4.0] - 2026-11-06
 
 ### Added

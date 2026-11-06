@@ -17,7 +17,8 @@ func nvimConfig() {
 	}
 
 	nvimDir := filepath.Join(dir.ConfigDir, "nvim")
-	if err := shell.RunCommand(true, "git", "clone", "https://github.com/LazyVim/starter", nvimDir); err != nil {
-		message.ErrorMessage("No se pudo clonar la configuración de LazyVim", err)
+	err := shell.RunCommand(true, "git", "clone", "https://github.com/LazyVim/starter", nvimDir)
+	if err != nil {
+		message.ErrorMessage("No se pudo descargar lazyvim", err)
 	}
 }
