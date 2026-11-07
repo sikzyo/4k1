@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.5.1] - 2026-11-07
+
+### Changed
+
+- Centralize download URL generation in `GetDownloadURL` and reuse it across configurations and installation steps
+
 ## [2.5.0] - 2026-11-06
 
 ### Added
