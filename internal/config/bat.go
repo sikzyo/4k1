@@ -2,7 +2,6 @@ package config
 
 import (
 	"fmt"
-	"net/url"
 	"path/filepath"
 
 	"github.com/sikzyo/4k1/internal/dir"
@@ -32,11 +31,9 @@ func setBatConfig() {
 
 	batDir = filepath.Join(dir.ConfigDir, "bat")
 	batConfigFile = filepath.Join(batDir, "config")
-	// FIXME: encontrar una mejor manera de generar las URLs dinámicas
-	baseURL, _ := url.Parse(download.ConfigURL)
-	downloadURL := baseURL.JoinPath("bat", "config")
+	downloadURL := download.GetDownloadURL("bat", "config")
 
-	err := download.DownloadFiles(downloadURL.String(), batConfigFile)
+	err := download.DownloadFiles(downloadURL, batConfigFile)
 	if err != nil {
 		message.ErrorMessage("No se pudo descargar el archivo de configuración para bat", err)
 	}
@@ -49,11 +46,9 @@ func setRosepineBat() {
 
 	batThemesDir = filepath.Join(batDir, "themes")
 	batThemeFile = filepath.Join(batThemesDir, "rose-pine.tmTheme")
-	// FIXME: encontrar una mejor manera de generar las URLs dinámicas
-	baseURL, _ := url.Parse(download.ConfigURL)
-	downloadURL := baseURL.JoinPath("bat", "themes", "rose-pine.tmTheme")
+	downloadURL := download.GetDownloadURL("bat", "themes", "rose-pine.tmTheme")
 
-	err := download.DownloadFiles(downloadURL.String(), batThemeFile)
+	err := download.DownloadFiles(downloadURL, batThemeFile)
 	if err != nil {
 		message.ErrorMessage("No se pudo descargar el tema de color para bat", err)
 	}

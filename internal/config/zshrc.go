@@ -2,7 +2,6 @@ package config
 
 import (
 	"fmt"
-	"net/url"
 	"os"
 	"path/filepath"
 
@@ -25,11 +24,9 @@ func getExports() {
 	}
 
 	exportsFile := filepath.Join(dir.ConfigDir, "zsh", "exports.zsh")
-	// FIXME: encontrar una mejor manera de generar las URLs dinámicas
-	baseURL, _ := url.Parse(download.ConfigURL)
-	downloadURL := baseURL.JoinPath("zsh", "exports.zsh")
+	downloadURL := download.GetDownloadURL("zsh", "exports.zsh")
 
-	err := download.DownloadFiles(downloadURL.String(), exportsFile)
+	err := download.DownloadFiles(downloadURL, exportsFile)
 	if err != nil {
 		message.ErrorMessage("No se pudo descargar el archivo exports.zsh correctamente", err)
 	}
@@ -41,11 +38,9 @@ func getZshrc() {
 	}
 
 	zshrcFile := filepath.Join(dir.UserDir, ".zshrc")
-	// FIXME: encontrar una mejor manera de generar las URLs dinámicas
-	baseURL, _ := url.Parse(download.ConfigURL)
-	downloadURL := baseURL.JoinPath(".zshrc")
+	downloadURL := download.GetDownloadURL(".zshrc")
 
-	err := download.DownloadFiles(downloadURL.String(), zshrcFile)
+	err := download.DownloadFiles(downloadURL, zshrcFile)
 	if err != nil {
 		message.ErrorMessage("No se pudo descargar el archivo .zshrc correctamente", err)
 	}
@@ -58,16 +53,14 @@ func getAlias() {
 
 	zshDir := filepath.Join(dir.ConfigDir, "zsh")
 	aliasFile := filepath.Join(zshDir, "alias.zsh")
-	// FIXME: encontrar una mejor manera de generar las URLs dinámicas
-	baseURL, _ := url.Parse(download.ConfigURL)
-	downloadURL := baseURL.JoinPath("zsh", "alias.zsh")
+	downloadURL := download.GetDownloadURL("zsh", "alias.zsh")
 
 	err := os.MkdirAll(zshDir, 0o755)
 	if err != nil {
 		message.ErrorMessage("Error al crear la carpeta para guardar el alias", err)
 	}
 
-	err = download.DownloadFiles(downloadURL.String(), aliasFile)
+	err = download.DownloadFiles(downloadURL, aliasFile)
 	if err != nil {
 		message.ErrorMessage("No se pudo descargar el archivo alias.zsh correctamente", err)
 	}
