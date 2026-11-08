@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.5.2] - 2026-11-08
+
+### Added
+
+- Add the Rosé Pine theme with transparency to Neovim
+- Configure the Snacks file explorer to open on the right
+- Download the Neovim theme and explorer configuration when applying configurations
+
+### Changed
+
+- Remove the previous Neovim configuration before cloning the LazyVim starter
+- Remove the starter's `.git` directory after cloning
+
 ## [2.5.1] - 2026-11-07
 
 ### Changed
