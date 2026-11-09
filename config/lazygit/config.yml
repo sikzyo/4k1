@@ -1,0 +1,58 @@
+gui:
+  theme:
+    activeBorderColor:
+      - "#31748f"
+      - bold
+
+    inactiveBorderColor:
+      - "#6e6a86"
+
+    searchingActiveBorderColor:
+      - "#ebbcba"
+      - bold
+
+    optionsTextColor:
+      - "#9ccfd8"
+
+    selectedLineBgColor:
+      - "#31748f"
+
+    inactiveViewSelectedLineBgColor:
+      - "#26233a"
+      - bold
+
+    cherryPickedCommitFgColor:
+      - "#1f1d2e"
+
+    cherryPickedCommitBgColor:
+      - "#ebbcba"
+
+    markedBaseCommitFgColor:
+      - "#9ccfd8"
+
+    markedBaseCommitBgColor:
+      - "#f6c177"
+
+    unstagedChangesColor:
+      - "#eb6f92"
+
+    defaultFgColor:
+      - "#e0def4"
+
+  colorScheme: dark
+  sidePanelWidth: 0.28
+  scrollHeight: 3
+  scrollOffMargin: 3
+  tabWidth: 2
+  fileTreeSortOrder: foldersFirst
+  showNumstatInFilesView: true
+  showRandomTip: false
+  filterMode: fuzzy
+  nerdFontsVersion: "3"
+  showDivergenceFromBaseBranch: arrowAndNumber
+
+git:
+  diffContextSize: 5
+  localBranchSortOrder: recency
+  autoFetch: true
+  autoForwardBranches: none

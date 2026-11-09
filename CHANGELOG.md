@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.8.1] - 2026-11-09
+
+### Added
+
+- Add a custom dark theme for Lazygit
+- Download the Lazygit plugin configuration when applying Neovim configurations
+
+### Changed
+
+- Disable Snacks automatic Lazygit configuration to preserve the YAML theme, including disabling its automatic Neovim editing integration
+
+## [2.8.0] - 2026-11-09
+
+### Added
+
+- Add `lazygit` to the CLI tools installed with Homebrew
+- Add Lazygit configuration with interface and Git preferences in `config/lazygit/config.yml`
+- Download Lazygit configuration to `~/.config/lazygit/config.yml` when applying configurations
+- Export `XDG_CONFIG_HOME` as `$HOME/.config` in the Zsh environment
+
 ## [2.7.0] - 2026-11-09
 
 ### Added
