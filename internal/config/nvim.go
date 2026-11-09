@@ -23,6 +23,7 @@ func nvimConfig() {
 	setCompletionNvim()
 	setExplorerNvim()
 	setThemeNvim()
+	setLazygitNvim()
 }
 
 func setLazyVim() {
@@ -106,5 +107,15 @@ func setThemeNvim() {
 	err := download.DownloadFiles(downloadURL, themeConfigFile)
 	if err != nil {
 		message.ErrorMessage("No se pudo descargar la configuración del tema de Neovim", err)
+	}
+}
+
+func setLazygitNvim() {
+	lazygitConfigFile := filepath.Join(nvimDir, "lua", "plugins", "lazygit.lua")
+	downloadURL := download.GetDownloadURL("nvim", "lua", "plugins", "lazygit.lua")
+
+	err := download.DownloadFiles(downloadURL, lazygitConfigFile)
+	if err != nil {
+		message.ErrorMessage("No se pudo descargar la configuración de Lazygit para Neovim", err)
 	}
 }
