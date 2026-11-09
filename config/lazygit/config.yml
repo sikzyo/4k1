@@ -1,0 +1,17 @@
+gui:
+  sidePanelWidth: 0.28
+  scrollHeight: 3
+  scrollOffMargin: 3
+  tabWidth: 2
+  fileTreeSortOrder: foldersFirst
+  showNumstatInFilesView: true
+  showRandomTip: false
+  filterMode: fuzzy
+  nerdFontsVersion: "3"
+  showDivergenceFromBaseBranch: arrowAndNumber
+
+git:
+  diffContextSize: 5
+  localBranchSortOrder: recency
+  autoFetch: true
+  autoForwardBranches: none
