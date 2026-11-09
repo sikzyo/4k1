@@ -17,6 +17,9 @@ func nvimConfig() {
 	fmt.Println("✦ Neovim ✦")
 
 	setLazyVim()
+	setExtrasNvim()
+	setOptionsNvim()
+	setCompletionNvim()
 	setExplorerNvim()
 	setThemeNvim()
 }
@@ -42,6 +45,36 @@ func setLazyVim() {
 	err = os.RemoveAll(nvimGitDir)
 	if err != nil {
 		message.ErrorMessage("No se pudo eliminar la carpeta .git", err)
+	}
+}
+
+func setExtrasNvim() {
+	extrasConfigFile := filepath.Join(nvimDir, "lazyvim.json")
+	downloadURL := download.GetDownloadURL("nvim", "lazyvim.json")
+
+	err := download.DownloadFiles(downloadURL, extrasConfigFile)
+	if err != nil {
+		message.ErrorMessage("No se pudo descargar la configuración de extras de Neovim", err)
+	}
+}
+
+func setOptionsNvim() {
+	optionsConfigFile := filepath.Join(nvimDir, "lua", "config", "options.lua")
+	downloadURL := download.GetDownloadURL("nvim", "lua", "config", "options.lua")
+
+	err := download.DownloadFiles(downloadURL, optionsConfigFile)
+	if err != nil {
+		message.ErrorMessage("No se pudo descargar la configuración de opciones de Neovim", err)
+	}
+}
+
+func setCompletionNvim() {
+	completionConfigFile := filepath.Join(nvimDir, "lua", "plugins", "completion.lua")
+	downloadURL := download.GetDownloadURL("nvim", "lua", "plugins", "completion.lua")
+
+	err := download.DownloadFiles(downloadURL, completionConfigFile)
+	if err != nil {
+		message.ErrorMessage("No se pudo descargar la configuración del autocompletado de Neovim", err)
 	}
 }
 
