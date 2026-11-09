@@ -19,6 +19,7 @@ func nvimConfig() {
 	setLazyVim()
 	setExtrasNvim()
 	setOptionsNvim()
+	setKeymapsNvim()
 	setCompletionNvim()
 	setExplorerNvim()
 	setThemeNvim()
@@ -65,6 +66,16 @@ func setOptionsNvim() {
 	err := download.DownloadFiles(downloadURL, optionsConfigFile)
 	if err != nil {
 		message.ErrorMessage("No se pudo descargar la configuración de opciones de Neovim", err)
+	}
+}
+
+func setKeymapsNvim() {
+	keymapsConfigFile := filepath.Join(nvimDir, "lua", "config", "keymaps.lua")
+	downloadURL := download.GetDownloadURL("nvim", "lua", "config", "keymaps.lua")
+
+	err := download.DownloadFiles(downloadURL, keymapsConfigFile)
+	if err != nil {
+		message.ErrorMessage("No se pudo descargar la configuración de atajos de Neovim", err)
 	}
 }
 
