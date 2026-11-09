@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.6.0] - 2026-11-09
+
+### Added
+
+- Enable the Go and Markdown LazyVim extras through `lazyvim.json`
+- Enable spell checking in Spanish and English in Neovim
+- Configure Blink completion to accept suggestions with Tab and keep Enter for new lines
+- Configure Tab and Shift-Tab to move between snippet placeholders
+- Download the Neovim extras, options, and completion configuration when applying configurations
+
 ## [2.5.2] - 2026-11-08
 
 ### Added
