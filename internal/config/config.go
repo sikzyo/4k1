@@ -14,4 +14,5 @@ var allConfig = []config{
 	{name: "nvim", execute: nvimConfig},
 	{name: "eza", execute: ezaConfig},
 	{name: "ghostty", execute: ghosttyConfig},
+	{name: "lazygit", execute: lazygitConfig},
 }
