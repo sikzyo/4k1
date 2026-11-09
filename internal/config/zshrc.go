@@ -16,6 +16,21 @@ func zshrcConfig() {
 	getZshrc()
 	getExports()
 	getAlias()
+	getTools()
+}
+
+func getTools() {
+	if dir.ConfigDir == "" {
+		dir.SetConfigDir()
+	}
+
+	toolsFile := filepath.Join(dir.ConfigDir, "zsh", "tools.zsh")
+	downloadURL := download.GetDownloadURL("zsh", "tools.zsh")
+
+	err := download.DownloadFiles(downloadURL, toolsFile)
+	if err != nil {
+		message.ErrorMessage("No se pudo descargar el archivo tools.zsh correctamente", err)
+	}
 }
 
 func getExports() {
