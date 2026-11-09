@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.6.2] - 2026-11-09
+
+### Added
+
+- Add Ctrl + G to toggle the Neovim terminal in normal and terminal modes while keeping its session running
+- Download the Neovim keymap configuration when applying configurations
+
 ## [2.6.1] - 2026-11-09
 
 ### Added
