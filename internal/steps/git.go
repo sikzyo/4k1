@@ -44,7 +44,7 @@ func selectOption() {
 	for {
 		fmt.Println("✦ ¿Desear configurar Git? [y/n]")
 		fmt.Print("-> ")
-		response := input.GetInput()
+		response, _ := input.GetInput()
 		switch response {
 		case "y", "Y":
 			configGit()
@@ -52,7 +52,6 @@ func selectOption() {
 		case "n", "N":
 			return
 		default:
-			message.TimeMessage("La opción seleccionada no esta disponible", 3)
 		}
 	}
 }
@@ -67,7 +66,7 @@ func setGitEmail() {
 	fmt.Println("✦ Ingresa tu correo electrónico")
 	fmt.Print("-> ")
 
-	gitEmail = input.GetInput()
+	gitEmail, _ = input.GetInput()
 	err := shell.RunCommand(false, "git", "config", "--global", "user.email", gitEmail)
 	if err != nil {
 		message.ErrorMessage("Error al configurar el correo electrónico", err)
@@ -78,7 +77,7 @@ func setGitUser() {
 	fmt.Println("✦ Ingresa tu nombre de usuario")
 	fmt.Print("-> ")
 
-	gitUsername := input.GetInput()
+	gitUsername, _ := input.GetInput()
 	err := shell.RunCommand(false, "git", "config", "--global", "user.name", gitUsername)
 	if err != nil {
 		message.ErrorMessage("Error al configurar nombre de usuario", err)
