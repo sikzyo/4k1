@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
 
 	"github.com/sikzyo/4k1/internal/input"
 	"github.com/sikzyo/4k1/internal/menu"
@@ -10,38 +9,45 @@ import (
 	"github.com/sikzyo/4k1/internal/steps"
 )
 
-func main() {
-	mainMenu := menu.Menu{
-		Title: "✦ Menu principal ✦",
-		Logo:  true,
-		Options: []menu.MenuOptions{
-			{Title: "Instalación completa"},
-			// {Title: "Instalación por secciones"},
-		},
-		Fallback: "Salir de la aplicación",
-	}
+var mainMenu = menu.Menu{
+	Title: "✦ Menu principal ✦",
+	Logo:  true,
+	Options: []menu.MenuOptions{
+		{Title: "Instalación completa"},
+	},
+	Fallback: "Salir",
+}
+var status string
 
+func main() {
+	run()
+}
+
+func run() {
 	for {
 		menu.ShowMenu(mainMenu)
-		selectOption()
-	}
-}
 
-func selectOption() {
-	fmt.Println("✦ Selecciona una opción del menu")
-	fmt.Print("-> ")
-	response := input.GetInput()
-	switch response {
-	case "1":
-		steps.FullInstall()
-	case "0":
-		exit4k1()
-	default:
-		message.TimeMessage("La opción seleccionada no esta disponible", 3)
-	}
-}
+		if status != "" {
+			fmt.Println(status)
+			status = ""
+		}
 
-func exit4k1() {
-	fmt.Println("✦ Gracias por usar 4k1 ✦")
-	os.Exit(0)
+		fmt.Println("✦ Selecciona una opción del menu")
+		fmt.Print("-> ")
+
+		response, err := input.GetInput()
+		if err != nil {
+			message.ErrorMessage("No se pudo obtener el input correctamente", err)
+		}
+
+		switch response {
+		case "1":
+			steps.FullInstall()
+		case "0":
+			fmt.Println("✦ Gracias por utilizar 4k1")
+			return
+		default:
+			status = "La opción no se encuentra disponible"
+		}
+	}
 }

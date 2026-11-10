@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.9.0] - 2026-11-10
+
+### Changed
+
+- Reuse a single standard input scanner and return input errors, including end-of-file
+- Handle input errors in the main menu and return normally when exiting the application
+- Display invalid main menu selections on the next render without a timed delay
+- Remove timed messages and the invalid-selection message from the Git configuration prompt
+- Shorten the main menu exit label and update the farewell message
+
 ## [2.8.2] - 2026-11-10
 
 ### Added
