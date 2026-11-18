@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.10.0] - 2026-11-18
+
+### Added
+
+- Add Spotify and Obsidian
+
 ## [2.9.0] - 2026-11-10
 
 ### Changed
