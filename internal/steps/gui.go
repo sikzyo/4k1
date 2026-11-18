@@ -7,7 +7,7 @@ import (
 	"github.com/sikzyo/4k1/internal/shell"
 )
 
-var guiApps = []string{"helium-browser", "keepassxc", "figcraft", "ghostty"}
+var guiApps = []string{"helium-browser", "keepassxc", "figcraft", "ghostty", "obsidian", "spotify"}
 
 func gui() {
 	fmt.Println("✦ GUI ✦")
