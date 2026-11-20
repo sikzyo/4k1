@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.13.0] - 2026-11-20
+
+### Added
+
+- Download `snacks.lua` when applying Neovim configurations.
+
+### Changed
+
+- Show hidden and ignored files in the Snacks file picker and explorer.
+
 ## [2.12.0] - 2026-11-19
 
 ### Added
